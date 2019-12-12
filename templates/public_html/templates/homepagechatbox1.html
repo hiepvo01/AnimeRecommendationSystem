@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+.container {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.darker {
+  border-color: #ccc;
+  background-color: #ddd;
+}
+
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.container img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.container img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+.time-right {
+  float: right;
+  color: #aaa;
+}
+
+.time-left {
+  float: left;
+  color: #999;
+}
+
+header {
+  color: White;
+  padding: 1px 0px 1px 50px;
+  background-color: rgb(75,75,75);
+  font-size: 13px;
+  margin: -9px -9px 0px -9px;
+}
+
+body {
+  background-color: rgb(230,230,230);
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.search {
+	padding: 10px 0px 50px 0px;
+}
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+<header>
+  <h2>Anime Recommender</h2>
+</header>
+<body>
+	<div class="container">
+  <img src="avatarhuman.png" alt="Avatar" style="width:100%;">
+  <p>Search similar anime for Naruto</p>
+  <span class="time-right">11:00</span>
+</div>
+
+<div class="container darker">
+  <img src="avatar.png" alt="Avatar" class="right" style="width:100%;">
+  <p>Here are the results:
+    No Game No Life,
+    Angel Beats!,
+    Tokyo Ghoul,
+    Code Geass: Hangyaku no Lelouch,
+  Mirai Nikki (TV)</p>
+  <span class="time-left">11:01</span>
+</div>
+
+<div class="container">
+  <img src="avatarhuman.png" alt="Avatar" style="width:100%;">
+  <p>Search anime name for slime</p>
+  <span class="time-right">11:02</span>
+</div>
+
+<div class="container darker">
+  <img src="avatar.png" alt="Avatar" class="right" style="width:100%;">
+  <p>Here are the results:
+  Slime Boukenki: Umi da, Yeah!, Tensei shitara Slime Datta Ken</p>
+  <span class="time-left">11:05</span>
+</div>
+
+</body>
+</html>

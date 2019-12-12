@@ -1,0 +1,22 @@
+[[source]]
+name = "pypi"
+verify_ssl = true
+url = "https://pypi.python.org/simple"
+
+[packages]
+starlette = "*"
+ujson = "*"
+uvicorn = "*"
+dialogflow = "*"
+flask = "*"
+requests = "*"
+fastapi = "*"
+sys = "*"
+websocket = "*"
+
+[dev-packages]
+pytest = "*"
+pytest-cov = "*"
+
+[requires]
+python_version = "3.7"
