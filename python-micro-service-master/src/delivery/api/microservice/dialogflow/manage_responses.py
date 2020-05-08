@@ -5,17 +5,20 @@ import codecs, requests, json
 import dialogflow_v2beta1 as dialogflow
 # Usage
 # Writes outputs of dialog file in output files present in dialogflow_and_server_response
-def handle_responses(responses,session_client_audio,session_path,audio_file_path,language_code):
-    
+def handle_responses(responses,session_client,session_path,audio_file_path,language_code):
     response,query_result=w1.print_transcript(responses)
 
     text_input = dialogflow.types.TextInput(text=query_result.query_text, language_code=language_code)
     query_input_audio = dialogflow.types.QueryInput(text=text_input)
     output_audio_config = dialogflow.types.OutputAudioConfig(audio_encoding=dialogflow.enums.OutputAudioEncoding.OUTPUT_AUDIO_ENCODING_LINEAR_16)
 
-    response = session_client_audio.detect_intent(session=session_path, query_input=query_input_audio, output_audio_config=output_audio_config)
+    response = session_client.detect_intent(session=session_path, query_input=query_input_audio, output_audio_config=output_audio_config)
 
     output_audio_convert = response.output_audio.decode('ISO-8859-1')
+    with codecs.open('botResponse.wav', 'wb') as out:
+        out.write(response.output_audio)
+        print('Audio content written to file "botResponse.wav"')
+        print('Audio content written to file "botResponse.wav"')
     response.output_audio = output_audio_convert.encode('utf-8')
     audio_encode = base64.b64encode(response.output_audio)
 

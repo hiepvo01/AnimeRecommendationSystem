@@ -7,11 +7,13 @@ def write_expected_audio(query_result):
         expected_audio.write(query_result.query_text.encode())
         print('Expected Audio written to file "expected_audio.txt"')
         expected_audio.close()
+        
 def write_output_wav(response):
-    with codecs.open('src/delivery/api/microservice/dialogflow/dialogflow_and_server_response/output.wav', 'wb') as out:
-        out.write(response.output_audio)
-        print('Audio content written to file "output.wav"')
-        out.close()
+        print('Fulfillment text: {}\n'.format(response.query_result.fulfillment_text))
+        with codecs.open('botResponse.wav', 'wb') as out:
+                print(response.output_audio[0:100])
+                out.write(response.output_audio)
+                print('Audio content written to file "botResponse.wav"')
 
 def write_audio_encode(response):
     audio_encode = base64.b64encode(response.output_audio)

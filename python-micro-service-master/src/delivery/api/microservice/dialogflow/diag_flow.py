@@ -24,7 +24,7 @@ def get_diag_flow_responses(session_client,audio_encoding,audio_file_path,sessio
                 yield dialogflow.types.StreamingDetectIntentRequest(
                     input_audio=chunk)
     
-    sample_rate_hertz = 48000
+    sample_rate_hertz = 16000
     audio_config = dialogflow.types.InputAudioConfig(audio_encoding=audio_encoding, language_code=language_code,sample_rate_hertz=sample_rate_hertz)
     requests_audio = request_generator(audio_config, audio_file_path)
     responses = session_client.streaming_detect_intent(requests_audio)
