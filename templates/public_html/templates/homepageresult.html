@@ -40,11 +40,21 @@ strong {
   <h2>Anime Recommender</h2>
 </header>
 <body>
-	<strong>Results : </strong>
-	<p>No Game No Life</p>
-	<p>Angel Beats!</p>
-	<p>Tokyo Ghoul</p>
-	<p>Code Geass: Hangyaku no Lelouch</p>
-	<p>Mirai Nikki (TV)</p>
+  <button id="refreshButton">Refresh Search</button>
+  <br><br>
+  <strong>If you are not sure about the full anime name, you get it by inputing a partial name below. Then you can copy paste the full anime name to get 5 other similar animes</strong>
+  <br><br><br>
+  <div id="full_name">
+    <input type="text" placeholder="search_full" id="search_full">
+    <button id="request_full">Submit Partial Name</button>
+  </div>
+  <br>
+  <div id="similar_name">
+    <input type="text" placeholder="search_similar" id="search_similar">
+    <button id="request_similar">Submit Full Name</button>
+  </div>
+  
+
+  <script src="../js/search.js"></script>
 </body>
 </html>

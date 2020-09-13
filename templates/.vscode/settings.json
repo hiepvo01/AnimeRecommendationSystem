@@ -1,0 +1,15 @@
+{
+  "editor.formatOnSaveTimeout": 5000,
+  "java.format.comments.enabled": false,
+  "java.format.onType.enabled": false,
+  "java.format.enabled": false,
+  "html.format.enable": false,
+  "css.validate": false,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+  "javascript.format.insertSpaceAfterSemicolonInForStatements": false,
+  "javascript.format.enable": false,
+  "html.format.preserveNewLines": false,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 100000
+}

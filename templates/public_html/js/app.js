@@ -20,52 +20,20 @@ pauseButton.addEventListener("click", pauseRecording);
 
 function startRecording() {
     console.log("recordButton clicked");
-
-    /*
-    	Simple constraints object, for more advanced audio features see
-    	https://addpipe.com/blog/audio-constraints-getusermedia/
-    */
-
     var constraints = { audio: true, video: false }
-
-    /*
-    	Disable the record button until we get a success or fail from getUserMedia() 
-	*/
 
     recordButton.disabled = true;
     stopButton.disabled = false;
     pauseButton.disabled = false
 
-    /*
-    	We're using the standard promise based getUserMedia() 
-    	https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia
-	*/
-
     navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
         console.log("getUserMedia() success, stream created, initializing Recorder.js ...");
 
-        /*
-        	create an audio context after getUserMedia is called
-        	sampleRate might change after getUserMedia is called, like it does on macOS when recording through AirPods
-        	the sampleRate defaults to the one set in your OS for your playback device
-        */
         audioContext = new AudioContext();
-
-        //update the format 
-
-        /*  assign to gumStream for later use  */
         gumStream = stream;
-
-        /* use the stream */
         input = audioContext.createMediaStreamSource(stream);
 
-        /* 
-        	Create the Recorder object and configure to record mono sound (1 channel)
-        	Recording 2 channels  will double the file size
-        */
         rec = new Recorder(input, { numChannels: 1 })
-
-        //start the recording process
         rec.record()
 
         console.log("Recording started");
@@ -88,7 +56,6 @@ function pauseRecording() {
         //resume
         rec.record()
         pauseButton.innerHTML = "Pause";
-
     }
 }
 
@@ -126,7 +93,7 @@ function createDownloadLink(blob) {
     };
     if ("WebSocket" in window) {
         // Let us open a web socket
-        var ws = new WebSocket("ws://127.0.0.1:8000/ws");
+        var ws = new WebSocket("ws://127.0.0.1:8000/chat");
         alert("WebSocket is supported by your Browser!");
         ws.onmessage = function(evt) {
             console.log(i)
